@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { NovuProvider, PopoverNotificationCenter, NotificationBell, IMessage, useNotifications } from '@novu/notification-center';
+import { HmacSHA256 } from 'crypto-js'
 
  enum ButtonTypeEnum {
   PRIMARY = 'primary',
@@ -21,6 +22,7 @@ const App = () => {
       backendUrl={"https://api.sebaguan.be"}
       socketUrl={"https://ws.sebaguan.be"}
       subscriberId={'1'}
+      subscriberHash={HmacSHA256("1", "<API_KEY>").toString()}
       applicationIdentifier={'LWLDoiUFi-px'}
     >
       <NotificationCenter />
